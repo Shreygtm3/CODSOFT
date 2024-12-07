@@ -1,0 +1,70 @@
+// File: simple_calculator.cpp
+#include <iostream>
+
+void displayMenu() {
+    std::cout << "
+Simple Calculator" << std::endl;
+    std::cout << "------------------" << std::endl;
+    std::cout << "1. Addition (+)" << std::endl;
+    std::cout << "2. Subtraction (-)" << std::endl;
+    std::cout << "3. Multiplication (*)" << std::endl;
+    std::cout << "4. Division (/)" << std::endl;
+std::cout << "5. Exit" << std::endl;
+    std::cout << "Choose an operation (1-5): ";
+}
+
+void performCalculation(int choice) {
+    double num1, num2, result;
+
+    if (choice < 1 || choice > 4) {
+        std::cout << "Invalid operation. Please try again." << std::endl;
+        return;
+}
+
+    std::cout << "Enter first number: ";
+    std::cin >> num1;
+    std::cout << "Enter second number: ";
+    std::cin >> num2;
+
+    switch (choice) {
+        case 1:
+            result = num1 + num2;
+std::cout << "Result: " << num1 << " + " << num2 << " = " << result << std::endl;
+            break;
+        case 2:
+            result = num1 - num2;
+std::cout << "Result: " << num1 << " - " << num2 << " = " << result << std::endl;
+            break;
+        case 3:
+            result = num1 * num2;
+std::cout << "Result: " << num1 << " * " << num2 << " = " << result << std::endl;
+            break;
+        case 4:
+            if (num2 == 0)
+std::cout << "Error: Division by zero is undefined." << std::endl;
+        } else {
+            result = num1 / num2;
+std::cout << "Result: " << num1 << " / " << num2 << " = " << result << std::endl;
+            }
+            break;
+        default:
+break;
+}
+}
+int main() {
+    int choice;
+
+    do {
+        displayMenu();
+        std::cin >> choice;
+
+        if (choice == 5)
+std::cout << "Exiting the program. Goodbye!" << std::endl;
+            break;
+        }
+
+        performCalculation(choice);
+    } while (true);
+
+    return 0;
+}
